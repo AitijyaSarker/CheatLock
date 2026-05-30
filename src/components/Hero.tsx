@@ -145,11 +145,10 @@ export default function Hero({ theme, onActionClick }: HeroProps) {
                 id="hero-cta-download"
                 href="/cheatlockdownload.apk"
                 download="cheatlockdownload.apk"
-                className="relative group overflow-hidden px-8 py-4 rounded-full font-bold text-base text-white shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center space-x-2 shrink-0"
+                className="relative group px-8 py-4 rounded-full font-bold text-base text-white shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center space-x-2 shrink-0 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:from-blue-500 group-hover:to-cyan-400 transition-colors" />
-                <Download className="w-5 h-5 relative z-10 text-white" />
-                <span className="relative z-10 text-white">{t('hero.cta1')}</span>
+                <Download className="w-5 h-5 text-white" />
+                <span>{t('hero.cta1')}</span>
               </a>
 
               <button

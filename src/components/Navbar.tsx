@@ -75,15 +75,8 @@ export default function Navbar({ theme, toggleTheme, activeSection }: NavbarProp
             onClick={() => scrollToSection('home')}
             className="flex items-center space-x-2.5 cursor-pointer group"
           >
-            <div className="relative">
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg blur-md opacity-40 group-hover:opacity-75 transition-opacity" />
-              <div className="relative bg-[#0b1120] text-blue-400 p-1.5 rounded-lg border border-blue-500/30 flex items-center justify-center">
-                <Shield className="w-5 h-5 absolute text-blue-400/80" />
-                <Lock className="w-2.5 h-2.5 text-cyan-400 relative z-10 translate-y-0.5" />
-                {/* Visual indicator of AI node */}
-                <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-green-500 rounded-full animate-ping" />
-                <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-green-500 rounded-full" />
-              </div>
+            <div className="relative flex items-center justify-center">
+              <img src="/logo.png" alt="CheatLock Logo" className="h-10 w-auto object-contain transform group-hover:scale-105 group-hover:brightness-110 transition-all duration-300 drop-shadow-[0_0_8px_rgba(59,130,246,0.4)] group-hover:drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
             </div>
             <div>
               <span className="font-display font-bold text-xl tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 dark:from-white dark:to-slate-300 bg-clip-text text-transparent group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-300">
