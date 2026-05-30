@@ -48,14 +48,15 @@ export default function DownloadCTA({ theme, onWatchDemoClick }: DownloadProps) 
             {/* Platform Download Actions buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               {/* Unified Mobile App download */}
-              <button
+              <a
                 id="download-btn-mobile"
-                onClick={() => alert('CheatLock Mobile Client App downloaded! (Simulation)')}
+                href="/cheatlockdownload.apk"
+                download="cheatlockdownload.apk"
                 className="w-full sm:w-auto px-8 py-4.5 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-xs font-bold uppercase tracking-wider text-white hover:opacity-90 shadow-xl active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center space-x-2 shrink-0"
               >
                 <Download className="w-5 h-5 text-white animate-bounce-slow" />
                 <span>Download App</span>
-              </button>
+              </a>
 
               {/* Watch demo */}
               <button

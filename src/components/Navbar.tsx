@@ -171,8 +171,9 @@ export default function Navbar({ theme, toggleTheme, activeSection }: NavbarProp
             </button>
 
             {/* CTA */}
-            <button
-              onClick={() => scrollToSection('download')}
+            <a
+              href="/cheatlockdownload.apk"
+              download="cheatlockdownload.apk"
               className="relative group overflow-hidden px-4.5 py-2 rounded-full text-sm font-semibold cursor-pointer text-white shadow-xl transition-all duration-300 transform active:scale-95"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full group-hover:opacity-90 transition-opacity" />
@@ -181,7 +182,7 @@ export default function Navbar({ theme, toggleTheme, activeSection }: NavbarProp
                 <Download className="w-4 h-4" />
                 <span>{t('nav.download')}</span>
               </span>
-            </button>
+            </a>
           </div>
 
           {/* Mobile Side Buttons & Controls */}
@@ -249,12 +250,13 @@ export default function Navbar({ theme, toggleTheme, activeSection }: NavbarProp
             </div>
 
             <div className="flex flex-col space-y-4 mt-auto">
-              <button
-                onClick={() => scrollToSection('download')}
-                className="py-3 text-center text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl cursor-pointer shadow-lg active:scale-95"
+              <a
+                href="/cheatlockdownload.apk"
+                download="cheatlockdownload.apk"
+                className="py-3 text-center block text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl cursor-pointer shadow-lg active:scale-95"
               >
                 {t('nav.download')}
-              </button>
+              </a>
             </div>
           </motion.div>
         )}
