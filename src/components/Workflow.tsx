@@ -191,7 +191,7 @@ export default function Workflow({ theme }: WorkflowProps) {
 
   return (
     <section
-      id="mission"
+      id="workflow"
       className={`py-24 transition-colors duration-500 relative ${
         theme === 'dark' ? 'bg-[#0b1120]' : 'bg-slate-50'
       }`}

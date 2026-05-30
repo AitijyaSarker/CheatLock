@@ -32,6 +32,14 @@ const translations = {
     'hero.trust.title': 'Enterprise Trust Architecture',
     
     // Global Labels
+    'features.tag': 'Features',
+    'features.categories.all': 'All',
+    'features.categories.ai': 'AI',
+    'features.categories.security': 'Security',
+    'features.categories.intelligence': 'Intelligence',
+    'features.labels.ai': 'AI',
+    'features.labels.security': 'Security',
+    'features.labels.intelligence': 'Intelligence',
     'features.title': 'AI-Driven Platform Features',
     'features.desc': 'From computer vision to deep browser interception, discover how CheatLock actively preserves the legitimacy of every exam session.',
     'workflow.title': 'The CheatLock Lifecycle',
@@ -71,6 +79,14 @@ const translations = {
     'hero.trust.title': 'এন্টারপ্রাইজ ট্রাস্ট আর্কিটেকচার',
     
     // Global Labels
+    'features.tag': 'বৈশিষ্ট্য',
+    'features.categories.all': 'সবগুলো',
+    'features.categories.ai': 'এআই',
+    'features.categories.security': 'নিরাপত্তা',
+    'features.categories.intelligence': 'ইন্টেলিজেন্স',
+    'features.labels.ai': 'এআই',
+    'features.labels.security': 'নিরাপত্তা',
+    'features.labels.intelligence': 'ইন্টেলিজেন্স',
     'features.title': 'এআই-চালিত প্ল্যাটফর্ম বৈশিষ্ট্য',
     'features.desc': 'কম্পিউটার ভিশন থেকে ব্রাউজার ইন্টারসেপশন পর্যন্ত, দেখুন কিভাবে চিটলক সক্রিয়ভাবে প্রতিটি পরীক্ষার অখণ্ডতা রক্ষা করে।',
     'workflow.title': 'চিটলক লাইফসাইকেল',

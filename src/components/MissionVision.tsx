@@ -8,7 +8,7 @@ interface MissionVisionProps {
 export default function MissionVision({ theme }: MissionVisionProps) {
   return (
     <section
-      id="mission-vision"
+      id="mission"
       className={`py-24 transition-colors duration-500 relative overflow-hidden ${
         theme === 'dark' ? 'bg-[#050816]' : 'bg-white'
       }`}

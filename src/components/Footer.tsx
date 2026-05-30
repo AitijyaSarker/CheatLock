@@ -39,11 +39,10 @@ export default function Footer({ theme, onLinkClick }: FooterProps) {
   return (
     <footer
       id="footer"
-      className={`border-t py-16 transition-colors duration-500 relative ${
-        theme === 'dark'
+      className={`border-t py-16 transition-colors duration-500 relative ${theme === 'dark'
           ? 'bg-[#050816] border-slate-850 text-slate-400'
           : 'bg-white border-slate-200 text-slate-600'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 pb-12">
@@ -80,11 +79,10 @@ export default function Footer({ theme, onLinkClick }: FooterProps) {
                   target="_blank"
                   rel="noreferrer"
                   title={social.label}
-                  className={`p-2 rounded-full border transition-all duration-300 ${
-                    theme === 'dark'
+                  className={`p-2 rounded-full border transition-all duration-300 ${theme === 'dark'
                       ? 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
                       : 'bg-slate-50 border-slate-200 text-slate-600 hover:text-blue-500 hover:bg-slate-100 hover:border-slate-300'
-                  }`}
+                    }`}
                 >
                   {social.icon}
                 </a>
@@ -179,7 +177,7 @@ export default function Footer({ theme, onLinkClick }: FooterProps) {
           </div>
 
           <div className="font-display font-medium text-slate-500 text-center sm:text-right">
-            <span>Built with innovation by <strong>Team NextZen</strong> — creators of CheatLock.</span>
+            <span>Built with innovation by <strong>Aitijya Sarker fromTeam NextZen</strong> — creators of CheatLock.</span>
           </div>
         </div>
       </div>
