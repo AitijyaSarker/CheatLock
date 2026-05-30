@@ -1,0 +1,6 @@
+{
+  "name": "CheatLock",
+  "description": "AI-Powered Online Exam Integrity Platform - Lock out shortcuts, Unlock true integrity.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

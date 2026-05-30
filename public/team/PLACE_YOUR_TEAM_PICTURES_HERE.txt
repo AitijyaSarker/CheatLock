@@ -1,0 +1,32 @@
+HEY NEXTZEN TEAM MEMBERS!
+This folder is the official folder structure for your team member profile pictures!
+
+You can easily replace these images by providing the raw pictures to an AI agent, and telling it to overwrite these files inside `/public/team/` using the exact same file names!
+
+Here are the expected file paths and recommended names according to your config in `/src/data.ts`:
+
+1. Project Coordinator -> Aitijya Sarker Atibo
+   - Expected file: `/public/team/aitijya.jpg` (or JPEG)
+
+2. Development Lead -> Jubayer Rahman Chowdhury
+   - Expected file: `/public/team/jubayer.jpg`
+
+3. Business Analyst -> Amanur Rahman Aman
+   - Expected file: `/public/team/aman.jpg`
+
+4. Business Analyst -> Sandid Haque
+   - Expected file: `/public/team/sandid.jpg`
+
+5. Global Marketing Executive -> Jeky Hasan Shuvo
+   - Expected file: `/public/team/jeky.jpg`
+
+6. Marketing Manager -> Rupanta Mazumder Kona
+   - Expected file: `/public/team/rupanta.jpg`
+
+RECOMMENDATIONS:
+- Crop pictures to a square ratio (e.g. 400x400 or 500x500 pixels) for the most professional circular display presentation!
+- Keep file extensions lowercase `.jpg` to match the configuration!
+- If you use another image format, the dynamic initials fallback (e.g., "AS", "JR", "AA" in premium gradient circles) will automatically serve as a stunning, sleek backup until the images are successfully loaded!
+
+Have a fantastic deployment!
+- CheatLock AI Build Assistant
