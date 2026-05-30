@@ -1,20 +1,24 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# CheatLock
 
-# Run and deploy your CheatLock app
+**AI-Powered Exam Integrity Platform**
 
-This contains everything you need to run your app locally.
+## What is CheatLock?
+CheatLock is an advanced multi-modal AI proctoring and military-grade browser lockdown technology designed to monitor, prevent, and detect academic dishonesty in real-time. It transforms any standard browser into a secure testing terminal, ensuring every exam score is earned and verified.
 
-View your app in CheatLock: https://ai.studio/apps/cacc6184-1245-406c-a137-fe92d0ec2dd2
+## How It Works
+CheatLock follows a rigorous, fully automated process to keep exams secure from start to finish:
 
-## Run Locally
+1. **Authentication (Identity Verification):** 
+   Before an exam begins, the candidate's identity is verified using real-time neural face scanning and active face biometrics to prevent proxy attendance.
 
-**Prerequisites:**  Node.js
+2. **System Lockdown (Environment Control):** 
+   The system restricts the testing terminal by ensuring full-screen mode, blocking secondary displays, deactivating clipboard copying/pasting, and shutting down third-party extensions.
 
+3. **AI Proctoring (Continuous Oversight):** 
+   CheatLock analyzes the candidate's gaze, physical movements, and environmental audio streams locally and in the cloud. It features high-precision eye tracking and acoustic voice analysis to flag suspicious behavior.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+4. **Automated Oversight (Real-Time Evaluation):** 
+   A real-time AI Suspicion Score is generated based on flagged violations. Proctors can view these threat metric feeds via a live dashboard to triage and interact with candidates if necessary.
+
+5. **Submission (Verifiable Completion):** 
+   The platform generates a crash-proof, cryptographically signed Audit Verification Ledger and an integrity report, ensuring secure exam delivery and uploading seamlessly into your CMS or LMS.
