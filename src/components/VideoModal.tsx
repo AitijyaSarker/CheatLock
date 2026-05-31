@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Play, Pause, Volume2, VolumeX, RotateCcw, ShieldAlert, Sparkles } from 'lucide-react';
+import { X, Play, Pause, Volume2, VolumeX, RotateCcw, Sparkles } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
 interface VideoModalProps {
@@ -12,37 +12,46 @@ export default function VideoModal({ isOpen, onClose, theme }: VideoModalProps) 
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(25);
-  const [duration, setDuration] = useState('02:40');
-  const [currentTime, setCurrentTime] = useState('00:40');
+  const [duration, setDuration] = useState('00:00');
+  const [currentTime, setCurrentTime] = useState('00:00');
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  // Simulated progress when using placeholder video layout
+  // Handle modal open/close video state
   useEffect(() => {
-    if (!isOpen) return;
-    
-    setIsPlaying(true);
-    let interval: any;
-    
-    if (isPlaying) {
-      interval = setInterval(() => {
-        setProgress((prev) => {
-          if (prev >= 100) {
-            return 0;
-          }
-          const next = prev + 0.5;
-          // Calculate readable time
-          const totalSecs = 160; // 2m 40s
-          const currentSecs = Math.floor((next / 100) * totalSecs);
-          const mins = Math.floor(currentSecs / 60);
-          const secs = currentSecs % 60;
-          setCurrentTime(`0${mins}:${secs < 10 ? '0' : ''}${secs}`);
-          return next;
-        });
-      }, 500);
+    if (!isOpen) {
+      if (videoRef.current) {
+        videoRef.current.pause();
+      }
+      return;
     }
     
-    return () => clearInterval(interval);
-  }, [isOpen, isPlaying]);
+    setIsPlaying(true);
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {});
+    }
+  }, [isOpen]);
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current) {
+      const current = videoRef.current.currentTime;
+      const total = videoRef.current.duration || 1;
+      setProgress((current / total) * 100);
+      
+      const currentMins = Math.floor(current / 60);
+      const currentSecs = Math.floor(current % 60);
+      setCurrentTime(`${currentMins < 10 ? '0' : ''}${currentMins}:${currentSecs < 10 ? '0' : ''}${currentSecs}`);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (videoRef.current) {
+      const total = videoRef.current.duration;
+      const totalMins = Math.floor(total / 60);
+      const totalSecs = Math.floor(total % 60);
+      setDuration(`${totalMins < 10 ? '0' : ''}${totalMins}:${totalSecs < 10 ? '0' : ''}${totalSecs}`);
+    }
+  };
 
   const handleTogglePlay = () => {
     setIsPlaying(!isPlaying);
@@ -69,6 +78,15 @@ export default function VideoModal({ isOpen, onClose, theme }: VideoModalProps) 
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => {});
+    }
+  };
+
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (videoRef.current) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const clickedValue = (x / rect.width) * (videoRef.current.duration || 1);
+      videoRef.current.currentTime = clickedValue;
     }
   };
 
@@ -125,38 +143,24 @@ export default function VideoModal({ isOpen, onClose, theme }: VideoModalProps) 
 
             {/* Simulated Video Player Box */}
             <div className="relative aspect-video bg-black flex items-center justify-center overflow-hidden group">
-              {/* Optional Placeholder / Real Video Tag */}
-              {/* If users ever provide an exact video file URL, they can swap this video element or iframe source */}
+              {/* Demo Video Tag */}
               <video
                 ref={videoRef}
-                src="" // Placeholder video source (insert later)
-                className="absolute inset-0 w-full h-full object-cover hidden"
+                src="/demo_video.mp4"
+                className="absolute inset-0 w-full h-full object-cover"
                 playsInline
                 autoPlay
                 loop
                 muted={isMuted}
+                onTimeUpdate={handleTimeUpdate}
+                onLoadedMetadata={handleLoadedMetadata}
               />
 
               {/* High Fidelity Screen Interface simulation graphics */}
               <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_transparent_40%,_rgba(0,0,0,0.4)_150%)]" />
               <div className="absolute inset-0 bg-grid-white/[0.015] pointer-events-none" />
 
-              {/* Playback Simulation Graphic Canvas */}
-              <div className="text-center space-y-4 max-w-xl px-8 z-10 transition-all">
-                <div className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-mono font-black uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
-                  <span>Product Walkthrough Placeholder</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-black text-white leading-tight">
-                  CheatLock Smartphone Client Interface
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-md mx-auto">
-                  Interactive gaze vectors, ambient noise checking, real-time warning logs, and background activity blocker features shown under live conditions. 
-                </p>
-                <p className="text-[10px] text-yellow-500 font-mono flex items-center justify-center gap-1.5">
-                  <ShieldAlert className="w-3.5 h-3.5" />
-                  <span>Replace this placeholder with your exact demo video later easily in `/src/components/VideoModal.tsx`!</span>
-                </p>
-              </div>
+
 
               {/* Live Overlay Indicators mimicking actual proctor overlay screen inside mockup */}
               <div className="absolute top-6 left-6 font-mono text-[9px] text-blue-400/80 space-y-1 select-none pointer-events-none text-left">
@@ -173,9 +177,12 @@ export default function VideoModal({ isOpen, onClose, theme }: VideoModalProps) 
               {/* Interactive Player Controls panel bar */}
               <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-4 flex flex-col space-y-3 z-20">
                 {/* Timeline Slider bar indicator */}
-                <div className="relative group/bar h-1.5 bg-white/20 rounded-full overflow-hidden cursor-pointer">
+                <div 
+                  className="relative group/bar h-1.5 bg-white/20 rounded-full overflow-hidden cursor-pointer"
+                  onClick={handleSeek}
+                >
                   <div 
-                    className="absolute top-0 left-0 h-full bg-blue-500 rounded-full transition-all"
+                    className="absolute top-0 left-0 h-full bg-blue-500 rounded-full transition-all duration-75"
                     style={{ width: `${progress}%` }}
                   />
                 </div>
