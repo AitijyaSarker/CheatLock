@@ -146,7 +146,7 @@ export default function VideoModal({ isOpen, onClose, theme }: VideoModalProps) 
               {/* Demo Video Tag */}
               <video
                 ref={videoRef}
-                src="/demo_video.mp4"
+                src="/CheatLockDemo.mp4"
                 className="absolute inset-0 w-full h-full object-cover"
                 playsInline
                 autoPlay
@@ -155,24 +155,6 @@ export default function VideoModal({ isOpen, onClose, theme }: VideoModalProps) 
                 onTimeUpdate={handleTimeUpdate}
                 onLoadedMetadata={handleLoadedMetadata}
               />
-
-              {/* High Fidelity Screen Interface simulation graphics */}
-              <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_transparent_40%,_rgba(0,0,0,0.4)_150%)]" />
-              <div className="absolute inset-0 bg-grid-white/[0.015] pointer-events-none" />
-
-
-
-              {/* Live Overlay Indicators mimicking actual proctor overlay screen inside mockup */}
-              <div className="absolute top-6 left-6 font-mono text-[9px] text-blue-400/80 space-y-1 select-none pointer-events-none text-left">
-                <div>SOURCE_NODE: CORE_SIM_P4</div>
-                <div>RENDER_RATE: 60FPS | V-SYNC</div>
-                <div>SECURE_SHIELD: COMPLIANT</div>
-              </div>
-
-              <div className="absolute top-6 right-6 flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded text-emerald-400 font-mono text-[9px] font-bold uppercase tracking-wider pointer-events-none select-none">
-                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping" />
-                <span>DEMO_STREAMING</span>
-              </div>
 
               {/* Interactive Player Controls panel bar */}
               <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-4 flex flex-col space-y-3 z-20">
