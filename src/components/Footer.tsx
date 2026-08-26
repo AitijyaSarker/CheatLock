@@ -37,25 +37,41 @@ export default function Footer({ theme, onLinkClick }: FooterProps) {
   const currentYear = 2026;
 
   return (
-    <footer
+    <>
+      <svg aria-hidden="true" className="absolute h-0 w-0">
+        <defs>
+          <filter id="footer-light-logo-colors" colorInterpolationFilters="sRGB">
+            <feColorMatrix
+              type="matrix"
+              values="1 0 -1 0 0 -1 1 0 0 0 -1 0 1 0 0 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+      <footer
       id="footer"
       className={`border-t py-16 transition-colors duration-500 relative ${theme === 'dark'
           ? 'bg-[#050816] border-slate-850 text-slate-400'
           : 'bg-white border-slate-200 text-slate-600'
         }`}
-    >
+      >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 pb-12">
           {/* Logo Brand / Credit details */}
           <div className="md:col-span-4 space-y-5 text-left md:pr-4">
             <div
               onClick={() => onLinkClick('home')}
-              className="flex items-center space-x-2.5 cursor-pointer group"
+              className="grid grid-cols-[2.5rem_auto] items-center gap-2.5 cursor-pointer group"
             >
-              <div className="relative flex items-center justify-center">
-                <img src="/logo.svg" alt="CheatLock Logo" className="h-8 w-auto object-contain transform group-hover:scale-105 group-hover:brightness-110 transition-all duration-300 drop-shadow-[0_0_6px_rgba(59,130,246,0.3)] group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+              <div className="relative grid h-10 w-10 place-items-center">
+                <img
+                  src="/logo.svg"
+                  alt="CheatLock Logo"
+                  className="h-10 w-10 object-contain transform group-hover:scale-105 group-hover:brightness-110 transition-all duration-300 drop-shadow-[0_0_6px_rgba(59,130,246,0.3)] group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+                  style={theme === 'light' ? { filter: 'url(#footer-light-logo-colors)' } : undefined}
+                />
               </div>
-              <span className="font-display font-bold text-lg tracking-tight text-white-important">
+              <span className="font-display font-bold text-lg tracking-tight text-white-important flex items-center">
                 <span className={theme === 'dark' ? 'text-white' : 'text-slate-900'}>
                   CheatLock
                 </span>
@@ -181,6 +197,7 @@ export default function Footer({ theme, onLinkClick }: FooterProps) {
           </div>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   );
 }
