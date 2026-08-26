@@ -296,7 +296,7 @@ export default function Contact({ theme, preSelectedPlan }: ContactProps) {
                       <p className={`text-sm leading-relaxed max-w-md mx-auto ${
                         theme === 'dark' ? 'text-slate-400' : 'text-slate-650'
                       }`}>
-                        Thank you for reaching out to Team NextZen. Your inquiry has been processed and routed to our regional academic compliance proctors. Expect email follow-up within 12 hours.
+                        Thank you for reaching out to UltraBulb IT. Your inquiry has been processed and routed to our regional academic compliance proctors. Expect email follow-up within 12 hours.
                       </p>
                     </div>
                     <button

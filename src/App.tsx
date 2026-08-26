@@ -14,6 +14,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import VideoModal from './components/VideoModal';
 
+const DEMO_VIDEO_URL = 'https://youtu.be/OzYVLCNSPew?si=5g-e7n7y8qthYtoU';
+
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
@@ -83,7 +85,7 @@ export default function App() {
 
   const handleHeroActionClick = (id: string) => {
     if (id === 'watch-demo') {
-      setIsVideoModalOpen(true);
+      window.open(DEMO_VIDEO_URL, '_blank', 'noopener,noreferrer');
     } else {
       handleScrollToSection(id);
     }
@@ -128,7 +130,7 @@ export default function App() {
 
         <Testimonials theme={theme} />
 
-        <DownloadCTA theme={theme} onWatchDemoClick={() => setIsVideoModalOpen(true)} />
+        <DownloadCTA theme={theme} onWatchDemoClick={() => window.open(DEMO_VIDEO_URL, '_blank', 'noopener,noreferrer')} />
 
         <Contact theme={theme} preSelectedPlan={selectedPlan} />
       </main>

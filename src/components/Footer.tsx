@@ -16,7 +16,7 @@ export default function Footer({ theme, onLinkClick }: FooterProps) {
   const companyLinks = [
     { label: 'About Us', id: 'about' },
     { label: 'Vision & Mission', id: 'mission' },
-    { label: 'NextZen Team', id: 'team' },
+    { label: 'UltraBulb IT Team', id: 'team' },
     { label: 'Client Matrix Review', id: 'comparison' },
   ];
 
@@ -177,7 +177,7 @@ export default function Footer({ theme, onLinkClick }: FooterProps) {
           </div>
 
           <div className="font-display font-medium text-slate-500 text-center sm:text-right">
-            <span>Built with innovation by <strong>Aitijya Sarker fromTeam NextZen</strong> — creators of CheatLock.</span>
+            <span>Built with innovation by <strong>Aitijya Sarker from UltraBulb IT</strong> — creators of CheatLock.</span>
           </div>
         </div>
       </div>
