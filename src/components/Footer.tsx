@@ -53,7 +53,7 @@ export default function Footer({ theme, onLinkClick }: FooterProps) {
               className="flex items-center space-x-2.5 cursor-pointer group"
             >
               <div className="relative flex items-center justify-center">
-                <img src="/logo.png" alt="CheatLock Logo" className="h-8 w-auto object-contain transform group-hover:scale-105 group-hover:brightness-110 transition-all duration-300 drop-shadow-[0_0_6px_rgba(59,130,246,0.3)] group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+                <img src="/logo.svg" alt="CheatLock Logo" className="h-8 w-auto object-contain transform group-hover:scale-105 group-hover:brightness-110 transition-all duration-300 drop-shadow-[0_0_6px_rgba(59,130,246,0.3)] group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
               </div>
               <span className="font-display font-bold text-lg tracking-tight text-white-important">
                 <span className={theme === 'dark' ? 'text-white' : 'text-slate-900'}>
