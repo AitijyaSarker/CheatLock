@@ -58,6 +58,16 @@ export default function Navbar({ theme, toggleTheme, activeSection }: NavbarProp
 
   return (
     <>
+      <svg aria-hidden="true" className="absolute h-0 w-0">
+        <defs>
+          <filter id="light-logo-colors" colorInterpolationFilters="sRGB">
+            <feColorMatrix
+              type="matrix"
+              values="1 0 -1 0 0 -1 1 0 0 0 -1 0 1 0 0 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
       <header
         id="navbar-header"
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -73,16 +83,27 @@ export default function Navbar({ theme, toggleTheme, activeSection }: NavbarProp
           <div
             id="navbar-logo"
             onClick={() => scrollToSection('home')}
-            className="flex items-center space-x-2.5 cursor-pointer group"
+            className="grid grid-cols-[3.5rem_auto] items-center gap-2.5 cursor-pointer group"
           >
-            <div className="relative flex items-center justify-center">
-              <img src="/logo.svg" alt="CheatLock Logo" className="h-10 w-auto object-contain transform group-hover:scale-105 group-hover:brightness-110 transition-all duration-300 drop-shadow-[0_0_8px_rgba(59,130,246,0.4)] group-hover:drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
+            <div className="relative grid h-14 w-14 translate-y-0.5 place-items-center">
+              <img
+                src="/logo.svg"
+                alt="CheatLock Logo"
+                className="h-14 w-14 object-contain transform group-hover:scale-105 group-hover:brightness-110 transition-all duration-300 drop-shadow-[0_0_8px_rgba(59,130,246,0.4)] group-hover:drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]"
+                style={theme === 'light' ? { filter: 'url(#light-logo-colors)' } : undefined}
+              />
             </div>
-            <div>
-              <span className="font-display font-bold text-xl tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 dark:from-white dark:to-slate-300 bg-clip-text text-transparent group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-300">
+            <div className="flex flex-col justify-center">
+              <span
+                className={`font-display font-bold text-xl tracking-tight bg-gradient-to-r bg-clip-text text-transparent group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-300 ${
+                  theme === 'dark'
+                    ? 'from-white via-slate-100 to-slate-400'
+                    : 'from-slate-950 via-slate-800 to-blue-700'
+                }`}
+              >
                 CheatLock
               </span>
-              <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-cyan-400 dark:text-cyan-400/80 font-bold -mt-0.5">
+              <div className={`text-[9px] font-mono uppercase tracking-[0.2em] font-bold -mt-0.5 ${theme === 'dark' ? 'text-cyan-400/80' : 'text-blue-600'}`}>
                 AI Proctored
               </div>
             </div>

@@ -222,7 +222,9 @@ export default function Workflow({ theme }: WorkflowProps) {
               return (
                 <div
                   key={step.stepNumber}
-                  onClick={() => setActiveStep(step.stepNumber)}
+                  onMouseEnter={() => setActiveStep(step.stepNumber)}
+                  onFocus={() => setActiveStep(step.stepNumber)}
+                  tabIndex={0}
                   className={`relative p-5 sm:p-6 rounded-2xl border text-left cursor-pointer transition-all duration-300 flex items-start space-x-5 group ${
                     isActive
                       ? theme === 'dark'
